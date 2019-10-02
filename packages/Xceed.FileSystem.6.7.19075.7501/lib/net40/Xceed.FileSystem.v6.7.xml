@@ -1,0 +1,2432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Xceed.FileSystem.v6.7</name>
+  </assembly>
+  <members>
+    <member name="T:Xceed.FileSystem.IBatchUpdateable">
+      <summary>Allows a  object to optimize its updates, by modifying its underlying physical store only once.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.IBatchUpdateable.BeginUpdate">
+      <summary>Prevents a  object from modifying its underlying physical store until the <see cref="M:Xceed.FileSystem.IBatchUpdateable.EndUpdate" />
+method is called.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.IBatchUpdateable.BeginUpdate(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Prevents a  object from modifying its underlying physical store until the <see cref="M:Xceed.FileSystem.IBatchUpdateable.EndUpdate" />
+method is called and raises events during the process.</summary>
+      <param name="events">A  object that will be used to raise events. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IBatchUpdateable.EndUpdate">
+      <summary>Informs a  object to apply to its underlying physical store all the modifications that have been made since the call to
+<see cref="M:Xceed.FileSystem.IBatchUpdateable.BeginUpdate" />.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.IBatchUpdateable.EndUpdate(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Informs a  object to apply to its underlying physical store all the modifications that have been made since the call to
+<see cref="M:Xceed.FileSystem.IBatchUpdateable.BeginUpdate" /> and raises events during the process.</summary>
+      <param name="events">A  object that will be used to raise events. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+    </member>
+    <member name="T:Xceed.FileSystem.DateTimeFilter.ApplicableDateTime">
+      <summary>Specifies which type of date/time will be filtered by a  class.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.DateTimeFilter.ApplicableDateTime.Creation">
+      <summary>The filter will apply only to the creation date/time.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.DateTimeFilter.ApplicableDateTime.LastWrite">
+      <summary>The filter will apply only to the last modified date/time.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.DateTimeFilter.ApplicableDateTime.LastAccess">
+      <summary>The filter will apply only to the last accessed date/time.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.DateTimeFilter.ApplicableDateTime.All">
+      <summary>The filter will apply to all date/times.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FilterResult">
+      <summary>Indicates if an item was accepted or rejected by a , or if the <see cref="T:Xceed.FileSystem.FilterScope" /> does not apply to the specified
+<see cref="T:Xceed.FileSystem.FileSystemItem" />.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FilterResult.Reject">
+      <summary>The item was rejected by the filter.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FilterResult.Accept">
+      <summary>The item was accepted by the filter.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FilterResult.NotApplicable">
+      <summary>The filter's scope does not apply to this item type or the specified .</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FilterScope">
+      <summary>Specifies which type of  will be filtered by a <see cref="T:Xceed.FileSystem.Filter" /> object.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FilterScope.File">
+      <summary>The filter will be applied to any  object.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FilterScope.Folder">
+      <summary>The filter will be applied to any  object.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FilterScope.All">
+      <summary>The filter will be applied to all types of  objects.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FilterScope.Recurse">
+      <summary>The filter <b>only</b> applies to subfolder  objects when the <i>recursive</i> parameter of the applicable methods is set to
+true.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemExceptionAction">
+      <summary>Value representing the action to take when an exception is thrown during the processing of a  object.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemExceptionAction.Abort">
+      <summary>The entire process will be aborted and the exception will be thrown.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemExceptionAction.Retry">
+      <summary>Retry processing the item. A corrective action <b>must</b> be taken otherwise the same exception will be rethrown.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemExceptionAction.Ignore">
+      <summary>Ignore the item that caused the error and continue processing the other items.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ReparsePointTags">
+      <summary />
+    </member>
+    <member name="T:Xceed.FileSystem.AbstractFile">
+      <summary>Represents a generic file and exposes properties and methods that allow file-oriented operations to be performed.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.AbstractFolder">
+      <summary>Represents a generic folder, and exposes properties and methods that allow folder-oriented operations to be performed.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.AndFilter">
+      <summary>Performs a logical AND operation on a set of  objects.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.AttributeFilter">
+      <summary>Filters a  object based on its attributes.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.AutoBatchUpdate">
+      <summary>Class that verifies if the object implements the  interface.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ByteProgressionEventArgs">
+      <summary>Provides byte progression information.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.DateTimeFilter">
+      <summary>Filters a  object based on its date and time.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.DiskFile">
+      <summary>Specialization of the  class that implements access to a disk file.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.DiskFolder">
+      <summary>Specialization of the  class that implements access to a disk folder.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemEventArgs">
+      <summary>The base class for argument classes used by all events.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemEvents">
+      <summary>Class that dispatches events raised from methods called on  objects or objects that derive from the
+<see cref="T:Xceed.FileSystem.FileSystemItem" /> class.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemEventsSession">
+      <summary>Class which holds information about the session which is responsible for raising all events that occur during the process.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemException">
+      <summary>Exception that is thrown when an error occurs in the Xceed.FileSystem namespace.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemInternalException">
+      <summary>Exception that is thrown when something unexpected occurs in the Xceed.FileSystem namespace.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemIOException">
+      <summary>Exception that is thrown when an I/O error occurs while reading from or writing to an  object.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemItem">
+      <summary>Root class for all types of items that can exist in a generic (abstract) folder. For example, a file and a folder.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.FileSystemNotSupportedException">
+      <summary>Exception that is thrown when calling a method or accessing a property that is not supported by a  object.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.Filter">
+      <summary>The <strong>Filter</strong> class allows to filter a list of  objects.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.InvalidCharacterInPathException">
+      <summary>Exception that is thrown when an error occurs in the Xceed.FileSystem namespace.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.IsolatedFile">
+      <summary>Specialization of the  class that implements access to a file located in Isolated Storage. <b>This class is not supported by
+Xceed Zip for .NET Compact Framework as Isolated Storage does not exist on the .NET Compact Framework.</b></summary>
+    </member>
+    <member name="T:Xceed.FileSystem.IsolatedFolder">
+      <summary>Specialization of the  class that implements access to a folder located in Isolated Storage. <b>This class is not supported
+by Xceed Zip for .NET Compact Framework as Isolated Storage does not exist on the .NET Compact Framework.</b></summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemAlreadyExistsException">
+      <summary>Exception that is thrown when performing an operation on a  object that already exists.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemDoesNotExistException">
+      <summary>Exception that is thrown when performing an operation on a  object that does not yet exist.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemExceptionEventArgs">
+      <summary>Provides information on the exception that was thrown during a process.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemIsReadOnlyException">
+      <summary>Exception that is thrown when performing an operation on a  object that is read only.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemIsRootFolderException">
+      <summary>Exception that is thrown when performing an illegal operation on a  object that is a root folder.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemPair">
+      <summary>Represents a pair of  objects consisting of the item being processed and its eventual target or destination item.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemProcessingEventArgs">
+      <summary>Provides information on an item pair that will be processed and offers actions to be taken upon it.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemProgressionEventArgs">
+      <summary>Provides item progression information.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.Licenser">
+      <summary>Class which is used to register the classes located in the Xceed.FileSystem namespace.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.MemoryFile">
+      <summary>Specialization of the  class that implements access to a file located in memory.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.MemoryFolder">
+      <summary>Specialization of the  class that implements access to a folder located in memory.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.NameFilter">
+      <summary>Filters a  object based on its name.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.NotFilter">
+      <summary>Performs a logical NOT operation on a  object.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.OrFilter">
+      <summary>Performs a logical OR operation on a set of  objects.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.PathExceptionEventArgs">
+      <summary>Provides information on the exception that was thrown during a process.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ProgressionInfo">
+      <summary>Provides progression information for progression events.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ReparsePointTagsFilter">
+      <summary>
+        <para>Filters a FileSystemItem object based on its ReparsePointTags value.</para>
+      </summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ScanningFolderEventArgs">
+      <summary>Provides information on the folder being scanned or accessed.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.SizeFilter">
+      <summary>Filters a  object based on its size.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.StreamFile">
+      <summary>Specialization of the  class that implements access to any type of stream as though it were a file.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.BuildList(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem,System.Boolean,System.Boolean,System.Boolean,Xceed.FileSystem.Filter[])">
+      <summary>Builds a list of  objects to process.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="destination">The eventual target for the item that will be procesed. For example, the desination folder for a folder that will be copied.</param>
+      <param name="forward">true if folders will be added to the list of  objects to process first; false if files will be added to the list first.</param>
+      <param name="recursive">true if items in subfolders should be added to the list of items to process; false otherwise.</param>
+      <param name="includeFolders">true if folders will be included in the list of items to process; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the list of  objects to process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.DoCopyTo(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem,System.Boolean)">
+      <summary>Copies the file into the destination.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="destination">An  object into which the file will be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.DoCreateWrite(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Creates the file and opens it for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.DoOpenRead(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for reading.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.DoOpenWrite(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="overwrite">true if existing data for the file should be replaced; false if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.GetAutomaticReadFileShare">
+      <summary>Retrieves a value indicating the default FileShare value to be used when opening read streams for copy/move operations.</summary>
+      <returns>A FileShare value indicating the default value to be used when opening read streams for copy/move operations.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.GetAutomaticWriteFileShare">
+      <summary>
+        <span id="BugEvents">Retrieves a value indicating the default FileShare value to be used when opening write streams for copy/move operations.</span>
+      </summary>
+      <returns>A FileShare value indicating the default value to be used when opening write streams for copy/move operations.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.GetStreamBufferSize(Xceed.FileSystem.FileSystemEventsSession,System.IO.Stream,System.IO.Stream,Xceed.FileSystem.FileSystemItem)">
+      <summary>Returns the recommended buffer size for a stream copy operation.</summary>
+      <returns>A value representing the recommended buffer size for a stream copy operation.</returns>
+      <param name="session">
+        <para>A reference to a FileSystemEventsSession object that is responsible for
+raising all events that occur during the process.<br />
+Can be null.</para>
+      </param>
+      <param name="sourceStream">A Stream object from which data will be read. Can be null.</param>
+      <param name="destinationStream">
+        <para>A Stream object to which data will be written. Can be null.</para>
+      </param>
+      <param name="destinationFile">
+        <para>A FileSystemItem object into which the file will be copied. Can be null.</para>
+      </param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.CopyTo(Xceed.FileSystem.AbstractFile,System.Boolean)">
+      <summary>Copies the file's data to another file.</summary>
+      <returns>A reference to a  object that represents the destination file.</returns>
+      <param name="destinationFile">An  object that represents the file to which the current file's data must be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceIfExists">true if the destination file should be replaced if it exists; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.CopyTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFile,System.Boolean)">
+      <summary>Copies the file's data to another file, and raises events during the process.</summary>
+      <returns>A reference to a  object that represents the destination file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFile">An  object that represents the file to which the current file's data must be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceIfExists">true if the destination file should be replaced if it exists; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.CreateWrite">
+      <summary>Creates a file and opens it for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.CreateWrite(System.IO.FileShare)">
+      <summary>Creates a file and opens it for writing using the specified file sharing mode.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.CreateWrite(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Creates a file and opens it for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.CreateWrite(Xceed.FileSystem.FileSystemEvents,System.Object,System.IO.FileShare)">
+      <summary>Creates a file and opens it for writing using the specified file sharing mode and raises events during the process.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.CreateWrite(Xceed.FileSystem.FileSystemEvents,System.Object,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Creates a file and opens it for writing using the specified file sharing mode and raises events during the process.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="fileOptions">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;595973fd-597e-4b5f-9e23-230932a7b7e6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.MoveTo(Xceed.FileSystem.AbstractFile,System.Boolean)">
+      <summary>Moves the contents of the  object to the target <see cref="T:Xceed.FileSystem.AbstractFile" /> object.</summary>
+      <returns>A  object that represents the newly moved item.</returns>
+      <param name="destinationFile">An  object into which the contents of the item will be moved. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceIfExists">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.MoveTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFile,System.Boolean)">
+      <summary>Moves the contents of the  object to the target <see cref="T:Xceed.FileSystem.AbstractFile" /> object and raises events during the process.</summary>
+      <returns>A  object that represents the newly moved item.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFile">An  object into which the contents of the item will be moved. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceIfExists">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenRead">
+      <summary>Opens the file for reading.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenRead(System.IO.FileShare)">
+      <summary>Opens the file for reading with the specified file sharing mode.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenRead(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Opens the file for reading and raises events during the process.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenRead(Xceed.FileSystem.FileSystemEvents,System.Object,System.IO.FileShare)">
+      <summary>Opens the file for reading with the specified file sharing mode and raises events during the process.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenRead(Xceed.FileSystem.FileSystemEvents,System.Object,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for reading with the specified file sharing mode, file options and raises events during the process.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="fileOptions">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;595973fd-597e-4b5f-9e23-230932a7b7e6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenWrite(System.Boolean)">
+      <summary>Opens the file for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="overwrite">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;0720c2a8-391d-4abf-9eb0-17a39409b605&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenWrite(System.Boolean,System.IO.FileShare)">
+      <summary>Opens the file for writing with the specified file sharing mode.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="overwrite">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;0720c2a8-391d-4abf-9eb0-17a39409b605&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenWrite(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean)">
+      <summary>Opens the file for writing and raises events during the process.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="overwrite">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;0720c2a8-391d-4abf-9eb0-17a39409b605&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenWrite(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean,System.IO.FileShare)">
+      <summary>Opens the file for writing with the specified file sharing mode and raises events during the process.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="overwrite">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;0720c2a8-391d-4abf-9eb0-17a39409b605&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFile.OpenWrite(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for writing with the specified file sharing mode, file options and raises events during the process.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="overwrite">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;0720c2a8-391d-4abf-9eb0-17a39409b605&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="share">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;d2c97f39-8a05-4b45-b151-cde4b93025de&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="fileOptions">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;595973fd-597e-4b5f-9e23-230932a7b7e6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="P:Xceed.FileSystem.AbstractFile.DefaultStreamBufferSize">
+      <summary>Gets or sets the recommended default buffer size for stream copy operations.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.AbstractFile.DoSize">
+      <summary>Gets the size of the file in bytes.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.AbstractFile.Size">
+      <summary>Gets the size of the file in bytes.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.AbstractFile.DefaultReadFileShare">
+      <summary>The default FileShare value to be used when opening read streams for copy/move operations.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.AbstractFile.DefaultWriteFileShare">
+      <summary>
+        <span id="BugEvents">The default FileShare value to be used when opening write streams for copy/move operations.</span>
+      </summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.BuildList(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem,System.Boolean,System.Boolean,System.Boolean,Xceed.FileSystem.Filter[])">
+      <summary>Builds a list of  objects to process.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="destination">The eventual target for the item that will be procesed. For example, the desination folder for a folder that will be copied.</param>
+      <param name="forward">true if folders will be added to the list of  objects to process first; false if files will be added to the list first.</param>
+      <param name="recursive">true if items in subfolders should be added to the list of items to process; false otherwise.</param>
+      <param name="includeFolders">true if folders will be included in the list of items to process; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the list of  objects to process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CopyFilesTo">
+      <summary>Copies the folder's content to another folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CopyItemsTo">
+      <summary>Copies the folder's items (files and empty folders) to another folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CreateFile">
+      <summary>Creates a new file in the folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CreateFolder">
+      <summary>Creates a new folder in the folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CreateTempFile">
+      <summary>Creates the temporary file.</summary>
+      <returns>A reference to an  object representing the temporary file.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.DoCopyTo(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem,System.Boolean)">
+      <summary>Copies the folder to another folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="destination">An  object into which the folder will be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.DoGetChildItems(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Retrieves an array of  objects.</summary>
+      <returns>An array of  objects representing the items ( files and folders ) contained within the folder.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.DoGetFile(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>Should return a reference to an  object regardless if the file represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="fileName">The name of the file to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.DoGetFiles(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,Xceed.FileSystem.Filter[])">
+      <summary>Retrieves an array of  objects.</summary>
+      <returns>An array of  objects representing the files contained within the folder.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="recursive">true if items in subfolders should be processed; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the list of  objects to process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.DoGetFolder(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>Should return reference to an  object regardless if the folder represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="folderName">The name of the folder to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.DoGetFolders(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,Xceed.FileSystem.Filter[])">
+      <summary>Retrieves an array of  objects.</summary>
+      <returns>An array of  objects representing the folders contained within the folder.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="recursive">true if items in subfolders should be processed; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the list of  objects to process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.DoGetItems(Xceed.FileSystem.FileSystemEventsSession,System.Boolean)">
+      <summary>Retrieves an array of  objects.</summary>
+      <returns>An array of  objects representing the files and folders contained within the folder.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="recursive">true if items in subfolders should be processed; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFile">
+      <summary>Returns an  object that represents a file contained in the folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFiles">
+      <summary>Returns a filtered list of files contained in the folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFolder">
+      <summary>Returns an  object that represents a folder contained in the folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFolders">
+      <summary>Returns a filtered list of folders contained in the folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetItems">
+      <summary>Returns a list of items contained in the folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.MoveFilesTo">
+      <summary>Moves the folder's content to another folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.MoveItemsTo">
+      <summary>Moves the folder's items (files and empty folders) to another folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CopyFilesTo(Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Copies the folder's content to another folder.</summary>
+      <param name="destinationFolder">An  object into which the folder's content must be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="recursive">true if the content of the folders contained in the subfolders should be copied; false if only the current folder's content should be copied.</param>
+      <param name="replaceExistingFiles">true if existing files in the destination should be replaced; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be copied.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CopyFilesTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Copies the folder's content to another folder, and raises events during the process.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An  object into which the folder's content must be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="recursive">true if the content of the folders contained in the subfolders should be copied; false if only the current folder's content should be copied.</param>
+      <param name="replaceExistingFiles">true if existing files in the destination should be replaced; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be copied.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CopyItemsTo(Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Copies the folder's items (files and empty folders) to another folder.</summary>
+      <param name="destinationFolder">An AbstractFolder object into which the folder's content must be copied. Cannot be
+null.</param>
+      <param name="recursive">
+        <strong>true</strong> if the content of the folders contained in the subfolders should be copied; <strong>false</strong> if only the current folder's content
+should be copied.</param>
+      <param name="replaceExistingFiles">
+        <strong>true</strong> if existing files in the destination should be replaced; <strong>false</strong> otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be copied.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CopyItemsTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Copies the folder's items (files and empty folders) to another folder, and raises events during the process.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An AbstractFolder object into which the folder's content must be copied. Cannot be
+null.</param>
+      <param name="recursive">
+        <strong>true</strong> if the content of the folders contained in the subfolders should be copied; <strong>false</strong> if only the current folder's content
+should be copied.</param>
+      <param name="replaceExistingFiles">
+        <strong>true</strong> if existing files in the destination should be replaced; <strong>false</strong> otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be copied.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CopyItemsTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Copies the folder's items (files and empty folders) to another folder, and raises events during the process.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An AbstractFolder object into which the folder's content must be copied. Cannot be
+null.</param>
+      <param name="recursive">
+        <strong>true</strong> if the content of the folders contained in the subfolders should be copied; <strong>false</strong> if only the current folder's content
+should be copied.</param>
+      <param name="includeFolders">
+        <strong>true</strong> if empty subfolders should be included in the copy operation; <strong>false</strong> otherwise.</param>
+      <param name="replaceExistingFiles">
+        <strong>true</strong> if existing files in the destination should be replaced; <strong>false</strong> otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be copied.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CreateFile(System.String,System.Boolean)">
+      <summary>Creates a new file in the folder.</summary>
+      <returns>An  object representing the newly created file.</returns>
+      <param name="relativeName">Relative name of the new file.</param>
+      <param name="replaceIfExists">true if the new file should replace an existing file; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CreateFile(Xceed.FileSystem.FileSystemEvents,System.Object,System.String,System.Boolean)">
+      <summary>Creates a new file in the folder and raises events during the process.</summary>
+      <returns>An  object representing the newly created file.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="relativeName">Relative name of the new file.</param>
+      <param name="replaceIfExists">true if the new file should replace an existing file; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CreateFolder(System.String)">
+      <summary>Creates a new folder in the folder.</summary>
+      <returns>An  object representing the newly created folder.</returns>
+      <param name="relativeName">Relative name of the new folder.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.CreateFolder(Xceed.FileSystem.FileSystemEvents,System.Object,System.String)">
+      <summary>Creates a new folder in the folder and raises events during the process.</summary>
+      <returns>An  object representing the newly created folder.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="relativeName">Relative name of the new file.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFile(System.String)">
+      <summary>Returns an  object that represents a file contained in the folder.</summary>
+      <returns>An  object representing the file named <paramref name="relativeName" />.</returns>
+      <param name="relativeName">Relative name of the file to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFile(Xceed.FileSystem.FileSystemEvents,System.Object,System.String)">
+      <summary>Returns an  object that represents a file contained in the folder and raises events during the process.</summary>
+      <returns>An  object representing the file named <paramref name="relativeName" />.</returns>
+      <param name="events">&lt;innovasys:widget layout="block" type="Include Topic"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget layout="block" type="Include Topic"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="relativeName">Relative name of the file to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFiles(System.Boolean,System.Object[])">
+      <summary>Returns a filtered list of files contained in the folder.</summary>
+      <returns>An array of  objects representing the files that match the specified <paramref name="filters" />.</returns>
+      <param name="recursive">true if files contained in the subfolders should be returned; false if only files that are immediate children of the folder should be returned.</param>
+      <param name="filters">An array of objects that can be used to filter the list of files returned.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFiles(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean,System.Object[])">
+      <summary>Returns a filtered list of files contained in the folder, and raises events during the process.</summary>
+      <returns>An array of  objects representing the files that match the specified <paramref name="filters" />.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="recursive">true if files contained in the subfolders should be returned; false if only files that are immediate children of the folder should be returned.</param>
+      <param name="filters">An array of objects that can be used to filter the list of files returned.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFolder(System.String)">
+      <summary>Returns an  object that represents a folder contained in the folder.</summary>
+      <returns>An  object representing the folder named <paramref name="relativeName" />.</returns>
+      <param name="relativeName">Relative name of the folder to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFolder(Xceed.FileSystem.FileSystemEvents,System.Object,System.String)">
+      <summary>Returns an  object that represents a folder contained in the folder and raises events during the process.</summary>
+      <returns>An  object representing the folder named <paramref name="relativeName" />.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="relativeName">Relative name of the folder to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFolders(System.Boolean,System.Object[])">
+      <summary>Returns a filtered list of folders contained in the folder.</summary>
+      <returns>An array of  objects representing the folders that match the specified <paramref name="filters" />.</returns>
+      <param name="recursive">true if folders contained in the subfolders should be returned; false if only folders that are immediate children of the folder should be returned.</param>
+      <param name="filters">An array of objects that can be used to filter the list of folders returned.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetFolders(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean,System.Object[])">
+      <summary>Returns a filtered list of folders contained in the folder, and raises events during the process.</summary>
+      <returns>An array of  objects representing the folders that match the specified <paramref name="filters" />.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="recursive">true if folders contained in the subfolders should be returned; false if only folders that are immediate children of the folder should be returned.</param>
+      <param name="filters">An array of objects that can be used to filter the list of folders returned.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetItems(System.Boolean)">
+      <summary>Returns a list of items contained in the folder.</summary>
+      <returns>An array of  objects representing the items contained in the folder.</returns>
+      <param name="recursive">true if items contained in the subfolders should be returned; false if only items that are immediate children of the folder should be returned.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.GetItems(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean)">
+      <summary>Returns a list of items contained in the folder, and raises events during the process.</summary>
+      <returns>An array of  objects representing the items contained in the folder.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="recursive">true if items contained in the subfolders should be returned; false if only items that are immediate children of the folder should be returned.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.MoveFilesTo(Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Moves the folder's content to another folder.</summary>
+      <param name="destinationFolder">An  object into which the folder's content must be moved. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="recursive">true if the content of the folders contained in the subfolders should be moved; false if only the current folder's content should be moved.</param>
+      <param name="replaceExistingFiles">true if existing files in the destination should be replaced; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be moved.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.MoveFilesTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Moves the folder's content to another folder, and raises events during the process.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An  object into which the folder's content must be moved. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="recursive">true if the content of the folders contained in the subfolders should be moved; false if only the current folder's content should be moved.</param>
+      <param name="replaceExistingFiles">true if existing files in the destination should be replaced; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be moved.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.MoveItemsTo(Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Moves the folder's items (files and empty folders) to another folder.</summary>
+      <param name="destinationFolder">An AbstractFolder object into which the folder's content must be moved. Cannot be
+null.</param>
+      <param name="recursive">
+        <strong>true</strong> if the content of the folders contained in the subfolders should be moved; <strong>false</strong> if only the current folder's content
+should be moved.</param>
+      <param name="replaceExistingFiles">
+        <strong>true</strong> if existing files in the destination should be replaced; <strong>false</strong> otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be moved.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.MoveItemsTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Moves the folder's items (files and empty folders) to another folder.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An AbstractFolder object into which the folder's content must be moved. Cannot be
+null.</param>
+      <param name="recursive">
+        <strong>true</strong> if the content of the folders contained in the subfolders should be moved; <strong>false</strong> if only the current folder's content
+should be moved.</param>
+      <param name="replaceExistingFiles">
+        <strong>true</strong> if existing files in the destination should be replaced; <strong>false</strong> otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be moved.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AbstractFolder.MoveItemsTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean,System.Boolean,System.Boolean,System.Object[])">
+      <summary>Moves the folder's items (files with an option to include empty folders or not) to another folder.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An AbstractFolder object into which the folder's content must be moved. Cannot be
+a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="recursive">
+        <strong>true</strong> if the content of the folders contained in the subfolders should be moved; <strong>false</strong> if only the current folder's content
+should be moved.</param>
+      <param name="includeFolders">
+        <strong>true</strong> if empty subfolders should be included in the move operation; <strong>false</strong> otherwise.</param>
+      <param name="replaceExistingFiles">
+        <strong>true</strong> if existing files in the destination should be replaced; <strong>false</strong> otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the items to be moved.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.AbstractFolder.DoIsRoot">
+      <summary>Gets a boolean value indicating if the folder is a root folder.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.AbstractFolder.IsRoot">
+      <summary>Gets a value indicating if the folder is a root folder.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.AbstractFolder.m_isRoot">
+      <summary>Identifies if this folder is a root folder.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AndFilter.#ctor(System.Object[])">
+      <summary>Initializes a new instance of the <strong>AndFilter</strong> class.</summary>
+      <param name="filters">Filters that are part of the logical AND operation.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AndFilter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item matches <b>all</b> of the filters.</summary>
+      <returns>true if <paramref name="item" /> matches <b>all</b> of the filters; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.AndFilter.Filters">
+      <summary>Gets an array of  objects that are part of the logical AND operation.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.AndFilter.Scope">
+      <summary>Gets or sets the scope of the <b>inner</b> filter.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AttributeFilter.#ctor(System.IO.FileAttributes)">
+      <summary>Initializes a new instance of the <strong>AttributeFilter</strong> class.</summary>
+      <param name="attributes"> fields that represent the attributes used to filter files and folders.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AttributeFilter.#ctor(System.IO.FileAttributes,Xceed.FileSystem.FilterScope)">
+      <summary>Initializes a new instance of the <strong>AttributeFilter</strong> class.</summary>
+      <param name="attributes"> fields that represent the attributes used to filter files and folders.</param>
+      <param name="scope">Determines whether the filter applies to files, folders or both.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AttributeFilter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item matches <b>at least one</b> of the file attributes.</summary>
+      <returns>true if <paramref name="item" /> matches <b>at least one</b> of the file attributes; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.AttributeFilter.Attributes">
+      <summary>Gets the file attributes used to filter files and folders.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.AutoBatchUpdate.#ctor(System.Object)">
+      <summary>Verifies if the object implements the  interface.</summary>
+      <param name="batchUpdateable">object that <b>may or may not</b> implement the  interface.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.AutoBatchUpdate.#ctor(System.Object,Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Verifies if the object implements the  interface and raises events during the process.</summary>
+      <param name="batchUpdateable">Object that <b>may or may not</b> implement the  interface.</param>
+      <param name="events">A  object that will be used to raise events. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ByteProgressionEventArgs.#ctor(Xceed.FileSystem.ProgressionInfo,Xceed.FileSystem.ProgressionInfo)">
+      <summary>Initializes a new instance of the ByteProgressionEventArgs argument class.</summary>
+      <param name="currentFileBytes">The size, in bytes, of the file currently being processed.</param>
+      <param name="allFilesBytes">The total combined size, in bytes, of all files being processed.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.ByteProgressionEventArgs.AllFilesBytes">
+      <summary>Gets the total combined size, in bytes, of all files being processed.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ByteProgressionEventArgs.CurrentFileBytes">
+      <summary>Gets the size, in bytes, of the file currently being processed.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ByteProgressionEventArgs.m_allFilesBytes">
+      <summary>An instance of the ProgressionInfo class representing the byte count information in regards to all the items to be processed.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ByteProgressionEventArgs.m_currentFileBytes">
+      <summary>An instance of the ProgressionInfo class representing the byte count information in regards to the current item being processed.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.DateTimeFilter.#ctor(System.DateTime,System.DateTime)">
+      <summary>Initializes a new instance of the <strong>DateTimeFilter</strong> class.</summary>
+      <param name="minValue">A  field that represents the minimum date and time of the filter.</param>
+      <param name="maxValue">A  field that represents the maximum date and time of the filter.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DateTimeFilter.#ctor(System.DateTime,System.DateTime,Xceed.FileSystem.DateTimeFilter.ApplicableDateTime)">
+      <summary>Initializes a new instance of the <strong>DateTimeFilter</strong> class, specifying to which type of date/time the filter applies.</summary>
+      <param name="minValue">A  field that represents the minimum date and time of the filter.</param>
+      <param name="maxValue">A  field that represents the maximum date and time of the filter.</param>
+      <param name="applicableDateTimes">Determines to which type of date/time the filter applies.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DateTimeFilter.#ctor(System.DateTime,System.DateTime,Xceed.FileSystem.FilterScope)">
+      <summary>Initializes a new instance of the <strong>DateTimeFilter</strong> class, specifying to which type of  object the filter
+applies.</summary>
+      <param name="minValue">A  field that represents the minimum date and time of the filter.</param>
+      <param name="maxValue">A  field that represents the maximum date and time of the filter.</param>
+      <param name="scope">Determines whether the filter applies to files, folders or both.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DateTimeFilter.#ctor(System.DateTime,System.DateTime,Xceed.FileSystem.DateTimeFilter.ApplicableDateTime,Xceed.FileSystem.FilterScope)">
+      <summary>Initializes a new instance of the <strong>DateTimeFilter</strong> class, specifying to which type of date/time and  object
+the filter applies.</summary>
+      <param name="minValue">A  field that represents the minimum date and time of the filter.</param>
+      <param name="maxValue">A  field that represents the maximum date and time of the filter.</param>
+      <param name="applicableDateTimes">Determines to which type of date/time the filter applies.</param>
+      <param name="scope">Determines whether the filter applies to files, folders or both.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DateTimeFilter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item matches the date/time filter.</summary>
+      <returns>true if <paramref name="item" /> matches the date/time filter; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.DateTimeFilter.ApplicableDateTimes">
+      <summary>Gets the dates and times used to filter files and folders.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DateTimeFilter.MaxDateTime">
+      <summary>Gets the maximum date and time value of the filter.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DateTimeFilter.MinDateTime">
+      <summary>Gets the minimum date and time value of the filter.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.#ctor">
+      <summary>Initializes a new instance of the  class.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.#ctor(System.String)">
+      <summary>Initializes a new instance of the  class with the fully qualified name of an underlying physical file.</summary>
+      <param name="fileName">Fully qualified name of the underlying physical file. This file may or may not physically exist.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.#ctor(Xceed.FileSystem.FileSystemEvents,System.Object,System.String)">
+      <summary>Initializes a new instance of the  class with the fully qualified name of an underlying physical file and specifying events and
+event data.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="fileName">
+        <para>A String that represents the fully qualified name of the underlying physical file. This file may or may not physically exist. Cannot be
+a null reference (<b>Nothing</b> in Visual Basic).</para>
+      </param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.#ctor(Xceed.FileSystem.FileSystemEvents,System.Object,System.String,Xceed.FileSystem.IO.IIOHandler)">
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="fileName">A String that represents the fully qualified name of the underlying physical file. This file may or may not physically exist. Cannot be
+a null reference (<b>Nothing</b> in Visual Basic).</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.DefaultDiskItemPathExceptionHandler(System.Object,Xceed.FileSystem.PathExceptionEventArgs)">
+      <summary>Represents the method that will handle the disk item's PathException event.</summary>
+      <param name="sender">The object that raised the event.</param>
+      <param name="e">Data passed by the event.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical file.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.DoOpenRead(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for reading.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.DoOpenWrite(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="overwrite">true if existing data for the file should be replaced; false if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.GetAutomaticReadFileShare">
+      <summary>Gets a value indicating the FileShare value to be used when opening read streams for copy/move operations.</summary>
+      <returns>The FileShare value to be used when opening read streams for copy/move operations.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.GetAutomaticWriteFileShare">
+      <summary>Gets a value indicating the FileShare value to be used when opening write streams for copy/move operations.</summary>
+      <returns>The FileShare value to be used when opening write streams for copy/move operations.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted.</summary>
+      <returns>true if the path is rooted (for example "d:\folder\file.txt"); false otherwise (for example "file.txt").</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFile.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target items represent the same physical entity.</summary>
+      <returns>true if the source and target  objects represent the same physical entity; false otherwise.</returns>
+      <param name="target">A  object representing the destination item.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.BatchUpdateable">
+      <summary>Returns null (Nothing in Visual Basic) since a  or a <see cref="T:Xceed.FileSystem.DiskFolder" /> does not support the
+<see cref="T:Xceed.FileSystem.IBatchUpdateable" /> interface.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DefaultAutomaticReadDiskFileShare">
+      <summary>Gets or sets a value indicating the default FileShare value to be used when opening read streams for copy/move operations.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DefaultAutomaticWriteDiskFileShare">
+      <summary>Gets or sets a value indicating the default FileShare value to be used when opening write streams for copy/move operations.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoAttributes">
+      <summary>Gets or sets the attributes of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFile.DoSize">
+      <summary>Gets the size of the file in bytes.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.#ctor(System.String)">
+      <summary>Initializes a new instance of the  class with the fully qualified name of the underlying physical folder the object is to
+represent.</summary>
+      <param name="folderName">Fully qualified name of the underlying physical folder the object is to represent. This folder may or may not physically exist. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.#ctor(Xceed.FileSystem.FileSystemEvents,System.Object,System.String)">
+      <summary>Initializes a new instance of the  class with the fully qualified name of the underlying physical folder the object is to
+represent.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="folderName">Fully qualified name of the underlying physical folder the object is to represent. This folder may or may not physically exist. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.DoGetChildItems(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Retrieves an array of  objects.</summary>
+      <returns>An array of  objects representing the items ( files and folders ) contained within the folder.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.DoGetFile(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>A reference to an  object regardless of if the file represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="fileName">The name of the file to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.DoGetFolder(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>A reference to an  object regardless of if the folder represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="folderName">The name of the folder to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted.</summary>
+      <returns>true if the path is rooted (for example "d:\folder"); false otherwise. (for example "folder")</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.DiskFolder.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target items represent the same physical entity.</summary>
+      <returns>true if the source and target  objects represent the same physical entity; false otherwise.</returns>
+      <param name="target">A  object representing the destination item.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.BatchUpdateable">
+      <summary>Gets the  implementation for this item</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoAttributes">
+      <summary>Gets or sets the attributes of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.DiskFolder.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventArgs.#ctor">
+      <summary>Initializes a new instance of the FileSystemEventArgs class.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventArgs.CurrentItem">
+      <summary>Gets or sets the current FileSystemItem object being processed.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventArgs.TargetItem">
+      <summary>Gets or sets the destination  object.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventArgs.UserData">
+      <summary>Gets or sets the opaque data that will be sent back to the event handler whenever an event is raised.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventArgs.m_currentItem">
+      <summary>The current  object being processed.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventArgs.m_targetItem">
+      <summary>The current target  object of the process.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventArgs.m_userData">
+      <summary>Opaque data that is sent back to the event handler when an event is raised.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.BeginSubOperation">
+      <summary>Called when a sub-operation is begun within a process.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.CreateSession(System.Object,System.Object)">
+      <summary>Initializes a new session from a  object.</summary>
+      <returns>A reference to a  object.</returns>
+      <param name="sender">The  object from which the session is created.</param>
+      <param name="userData">Opaque data that is sent back to the event handler when an event is raised.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.EndSubOperation">
+      <summary>Called when a sub-operation is ended within a process.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.OnByteProgression(System.Object,Xceed.FileSystem.ByteProgressionEventArgs)">
+      <summary>Raises the  event.</summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A  that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.OnItemCompletion(System.Object,Xceed.FileSystem.ItemProgressionEventArgs)">
+      <summary>Raises the ItemCompletion event.</summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">An  that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.OnItemException(System.Object,Xceed.FileSystem.ItemExceptionEventArgs)">
+      <summary>Raises the  event.</summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">An  that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.OnItemProgression(System.Object,Xceed.FileSystem.ItemProgressionEventArgs)">
+      <summary>Raises the  event.</summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">An  that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.OnPathException(System.Object,Xceed.FileSystem.PathExceptionEventArgs)">
+      <summary>Raises the PathException event.</summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A PathExceptionEventArgs that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.OnScanningFolder(System.Object,Xceed.FileSystem.ScanningFolderEventArgs)">
+      <summary>Raises the  event.</summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A  that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEvents.ValidateParams(System.Object,Xceed.FileSystem.FileSystemEventArgs)">
+      <summary>Verifies the validity of the parameters sent to the event handlers.</summary>
+      <param name="sender">The  on which the method was called.</param>
+      <param name="e">An instance of the  argument class.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEvents.Empty">
+      <summary>This property is reserved for internal use and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEvents.WantsByteProgression">
+      <summary>Gets a boolean value indicating if the  object has subscribed to the <see cref="E:Xceed.FileSystem.FileSystemEvents.ByteProgression" />
+event.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEvents.WantsItemCompletion">
+      <summary>Gets a  value indicating if the <see cref="Xceed.FileSystem.v6.7~Xceed.FileSystem.FileSystemEvents.html">FileSystemEvents</see> object has
+subscribed to the <see cref="Xceed.FileSystem.v6.7~Xceed.FileSystem.FileSystemEvents~ItemCompletion_EV.html">ItemCompletion</see> event.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEvents.WantsItemException">
+      <summary>Gets a boolean value indicating if the  object has subscribed to the <see cref="E:Xceed.FileSystem.FileSystemEvents.ItemException" />
+event.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEvents.WantsItemProgression">
+      <summary>Gets a boolean value indicating if the  object has subscribed to the <see cref="E:Xceed.FileSystem.FileSystemEvents.ItemProgression" />
+event.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEvents.WantsPathException">
+      <summary>Gets a boolean value indicating if the FileSystemEvents object has subscribed to the
+<see cref="Xceed.FileSystem.v6.7~Xceed.FileSystem.FileSystemEvents~PathException_EV.html">PathException</see> event.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEvents.WantsScanningFolder">
+      <summary>Gets a boolean value indicating if the  object has subscribed to the <see cref="E:Xceed.FileSystem.FileSystemEvents.ScanningFolder" />
+event.</summary>
+    </member>
+    <member name="E:Xceed.FileSystem.FileSystemEvents.AddingItemToProcess">
+      <summary>Raised every time a  object is about to be added to the list of items to be processed, providing information to the event
+handler and optional actions to be taken.</summary>
+    </member>
+    <member name="E:Xceed.FileSystem.FileSystemEvents.ByteProgression">
+      <summary>Raised for every 64k of bytes processed when a  object is being processed.</summary>
+    </member>
+    <member name="E:Xceed.FileSystem.FileSystemEvents.ItemCompletion">
+      <summary>Raised every time a FileSystemItem object has been processed, providing progression
+information to the event handler and the ability to perform custom post-processing on the target item.</summary>
+    </member>
+    <member name="E:Xceed.FileSystem.FileSystemEvents.ItemException">
+      <summary>Raised when an exception is caught during the processing of a  object, allowing the handler to decide the action to take.</summary>
+    </member>
+    <member name="E:Xceed.FileSystem.FileSystemEvents.ItemProgression">
+      <summary>Raised every time a  object is <b>about to be processed</b>, providing progression information to the event handler.</summary>
+    </member>
+    <member name="E:Xceed.FileSystem.FileSystemEvents.PathException">
+      <summary>Raised when an exception is caught during the processing of a path string, allowing the handler to correct the path and retry the operation.</summary>
+    </member>
+    <member name="E:Xceed.FileSystem.FileSystemEvents.ScanningFolder">
+      <summary>Raised when an  object is accessed or is scanned for matching items while building a list of items to process.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.#ctor(Xceed.FileSystem.FileSystemEvents,System.Object,System.Object)">
+      <summary>Initializes a new instance of the  class.</summary>
+      <param name="events">The  object from which we created the session.</param>
+      <param name="sender">The  object on which the process was called.</param>
+      <param name="userData">Opaque data that is sent back to the event handler when an event is raised.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.AssignComparer(System.Collections.Generic.IComparer{Xceed.FileSystem.ItemPair})">
+      <summary>Sorts the list of items to be processed using a specific comparer.</summary>
+      <returns>
+        <strong>true</strong> if the comparer was successfully assigned; <strong>false</strong> if the same comparer is already assigned.</returns>
+      <param name="comparer">An <strong>IComparer&lt;T&gt;</strong> where <strong>T</strong> is the ItemPair that will be
+used to sort the list of items.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.GetNextItemPair">
+      <summary>Retrieves the next pair of  objects to be processed.</summary>
+      <returns>An  object.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnBytesCompleted">
+      <summary>Forces the byte progression to 100% completion.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnBytesProcessed">
+      <summary>Raises the <strong>FileSystemEvents.ByteProgression</strong> event.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnCompletion">
+      <summary>Raises the last <strong>ItemProgression</strong> event when the process is completed.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnException">
+      <summary>Raises the <strong>ItemException</strong> event whenever an error occurs during the processing of a  object.</summary>
+      <returns>An ItemExceptionAction value representing the action to take.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnItemCompleted">
+      <summary>Raises the ItemCompletion event.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnNewItemToProcess(Xceed.FileSystem.FileSystemItem,Xceed.FileSystem.FileSystemItem)">
+      <summary>Places the new item in the list of  objects to be processed.</summary>
+      <param name="currentItem">The  object being processed.</param>
+      <param name="targetItem">The eventual target  object being added to the list of items.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnPathException(System.Exception,System.Type,System.String@)">
+      <summary>Raises the PathException event whenever an error occurs during the
+processing of a path string during construction of a FileSystem-derived object</summary>
+      <returns>An ItemExceptionAction value representing the action to take.</returns>
+      <param name="exception">The error that occurred.</param>
+      <param name="path">The path that caused the exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnProcessingNewItem">
+      <summary>Called when a new item is about to be processed.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnScanningFolder(Xceed.FileSystem.AbstractFolder)">
+      <summary>Raises the  event.</summary>
+      <param name="currentFolder">The  object being scanned.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemEventsSession.OnUndoBytesProcessed">
+      <summary>Removes the amount of bytes processed for an item if an error occurred during the processing of that item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventsSession.CurrentItem">
+      <summary>Gets or sets the  object currently being processed.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventsSession.Events">
+      <summary>Gets the original  object used to create the session.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventsSession.IsEmpty">
+      <summary>Gets a boolean value indicating if the session's list of  objects to process contains no items.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventsSession.TargetItem">
+      <summary>Gets or sets the eventual target  object for the process.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemEventsSession.UserData">
+      <summary>Gets the opaque data that is sent back to the event handler when an event is raised.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_allFilesBytes">
+      <summary>An instance of the ProgressionInfo class representing the byte count information in regards to all the items to be processed for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_allItems">
+      <summary>An instance of the ProgressionInfo class representing the item count information for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_byteProgressionArgs">
+      <summary>An instance of the  class that provides byte progression information for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_currentFileBytes">
+      <summary>An instance of the ProgressionInfo class representing the byte count information in regards to the current item being processed for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_currentItem">
+      <summary>The current  object being processed for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_events">
+      <summary>An instance of the  class representing the original <see cref="T:Xceed.FileSystem.FileSystemEvents" /> object from which we created the
+session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_itemExceptionArgs">
+      <summary>An instance of the  class that provides information on the exception that was thrown during a process for the
+current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_itemPairList">
+      <summary>Represents a sorted collection of the items to process for the current session. Some FileSystem implementations require sorting items before processing them in
+order to improve performance.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_itemPairQueue">
+      <summary>Represents a first-in, first-out collection of the items to process for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_itemProgressionArgs">
+      <summary>An instance of the  class that provides item progression information for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_scanningFolderArgs">
+      <summary>An instance of the  class that provides information on the folder being scanned or accessed for the current
+session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_sender">
+      <summary>The  object on which the process was called.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_targetItem">
+      <summary>The current target  object of the process for the current session.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemEventsSession.m_userData">
+      <summary>This is set at construction, and updated after each event. It is assigned to each argument structure before each event.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemException.#ctor(System.String)">
+      <summary>Initializes a new instance of the exception with the specified message text.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemException.#ctor(System.String,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemException.#ctor(System.String,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified message text and FileSystemItem object.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemException.Item">
+      <summary>Gets or sets the  object that caused the current exception.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemException.Message">
+      <summary>Gets a message that describes the current exception.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor">
+      <summary>Initializes a new instance of the exception.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor(Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor(System.String)">
+      <summary>Initializes a new instance of the exception with the specified message text.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor(System.String,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified message text and FileSystemItem object.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor(System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified inner exception.</summary>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor(Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object and inner exception.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor(System.String,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemInternalException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemIOException.#ctor(Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object and inner exception.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemIOException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemIOException.#ctor(System.String)">
+      <summary>Initializes a new instance of the exception with the specified message text.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.BuildList(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem,System.Boolean,System.Boolean,System.Boolean,Xceed.FileSystem.Filter[])">
+      <summary>Builds a list of  objects to process.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="destination">The eventual target for the item that will be procesed. For example, the desination folder for a folder that will be copied.</param>
+      <param name="forward">true if folders will be added to the list of  objects to process first; false if files will be added to the list first.</param>
+      <param name="recursive">true if items in subfolders should be added to the list of items to process; false otherwise.</param>
+      <param name="includeFolders">true if folders will be included in the list of items to process; false otherwise.</param>
+      <param name="filters">An array of objects that can be used to filter the list of  objects to process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.BuildListForCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Handles the special cases in regards to building the list of items to process when creating a  object.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.DoApplyPropertiesFrom(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem)">
+      <summary>This method is reserved for internal use and is not intended to be used directly from your code.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.DoApplyPropertiesTo(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem)">
+      <summary>Copies the item's properties to another item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="targetItem">A  object to which the current item's properties must be copied. Should not be a null reference (<b>Nothing</b> in Visual Basic).</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.DoCopyTo(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem,System.Boolean)">
+      <summary>Copies the item to another folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="destination">An  object into which the item will be copied. Should not be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical item represented by the  object.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.EnsureDateIsValid(System.DateTime)">
+      <summary>Ensures that the  value is valid.</summary>
+      <param name="value">The  value to validate.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted in the environment of the  object we are dealing with.</summary>
+      <returns>true if the path is rooted; false otherwise.</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target items represent the same physical entity.</summary>
+      <returns>true if the source and target  objects represent the same physical entity; false otherwise.</returns>
+      <param name="target">A  object representing the destination item.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListCopyTo(Xceed.FileSystem.FileSystemEventsSession,System.Boolean)">
+      <summary>Copies each item in the  object's list to each item's destination.</summary>
+      <returns>A reference to a  object representing the target item of the <b>first</b><see cref="T:Xceed.FileSystem.ItemPair" />.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListCopyToCore(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.ItemPair,System.Boolean)">
+      <summary>Copies the item pair's current  to its target <see cref="T:Xceed.FileSystem.FileSystemItem" />.</summary>
+      <param name="session">A reference to a  object responsible for raising all events that occur during the process.</param>
+      <param name="currentItemPair">A reference to an  object which contains the <see cref="T:Xceed.FileSystem.FileSystemItem" /> to be copied and its eventual target.</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates each item in the  object's list.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListCreateCore(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.ItemPair)">
+      <summary>Creates the item pair's current .</summary>
+      <param name="session">A reference to a  object responsible for raising all events that occur during the process.</param>
+      <param name="currentItemPair">A reference to an  object which contains the item to be created.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Deletes each item in the  object's list.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListDeleteCore(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.ItemPair)">
+      <summary>Deletes the item pair's current .</summary>
+      <param name="session">A reference to a  object responsible for raising all events that occur during the process.</param>
+      <param name="currentItemPair">A reference to an  object which contains the item to be deleted.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListMoveTo(Xceed.FileSystem.FileSystemEventsSession,System.Boolean)">
+      <summary>Moves each item in the  object's list to each item's destination.</summary>
+      <returns>A reference to a  object representing the target item of the <b>last</b><see cref="T:Xceed.FileSystem.ItemPair" />.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ListMoveToCore(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.ItemPair,System.Boolean)">
+      <summary>Moves the item pair's current  to its target <see cref="T:Xceed.FileSystem.FileSystemItem" />.</summary>
+      <param name="session">A reference to a  object responsible for raising all events that occur during the process.</param>
+      <param name="currentItemPair">A reference to a  object which contains the <see cref="T:Xceed.FileSystem.FileSystemItem" /> to be moved and its eventual target.</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.OnCreated(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Called when a client explicitly calls Create.</summary>
+      <param name="session">The FileSystemEventsSession to use.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ToString">
+      <summary>Returns the full name of the item.</summary>
+      <returns>A string that represents the full name of the item.</returns>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ApplyPropertiesTo(Xceed.FileSystem.FileSystemItem)">
+      <summary>Copies the item's properties to another item.</summary>
+      <param name="targetItem">A  object to which the current item's properties must be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.ApplyPropertiesTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.FileSystemItem)">
+      <summary>Copies the item's properties to another item and raises events during the process.</summary>
+      <param name="events">A  object that will be used to raise events. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="targetItem">A  object to which the current item's properties must be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.CopyTo(Xceed.FileSystem.AbstractFolder,System.Boolean)">
+      <summary>Copies the item to another folder.</summary>
+      <returns>A  object that represents the newly copied item.</returns>
+      <param name="destinationFolder">An  object into which the item will be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.CopyTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean)">
+      <summary>Copies the item to another folder, and raises events during the process.</summary>
+      <returns>A  object that represents the newly copied item.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An  object into which the item will be copied. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.Create">
+      <summary>Creates the physical item represented by this  object.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.Create(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Creates the physical item represented by this  object and raises events during the process.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.Delete">
+      <summary>Permanently deletes the physical item.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.Delete(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Permanently deletes the physical item, and raises events during the process.</summary>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.MoveTo(Xceed.FileSystem.AbstractFolder,System.Boolean)">
+      <summary>Moves the item to another folder.</summary>
+      <returns>A  object that represents the newly moved item.</returns>
+      <param name="destinationFolder">An  object into which the item will be moved. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.MoveTo(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFolder,System.Boolean)">
+      <summary>Moves the item to another folder, and raises events during the process.</summary>
+      <returns>A  object that represents the newly moved item.</returns>
+      <param name="events">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;b04a8cfd-94d3-404d-af81-f3090fcf4cf8&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="userData">&lt;innovasys:widget type="Include Topic" layout="block"&gt;&lt;innovasys:widgetproperty layout="block"
+name="source"&gt;134a40d3-b6d1-4b2c-841b-0280ed630dc6&lt;/innovasys:widgetproperty&gt;&lt;/innovasys:widget&gt;</param>
+      <param name="destinationFolder">An  object into which the item will be moved. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="replaceExistingFiles">true if existing items in the destination should be replaced; false otherwise.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.Refresh">
+      <summary>Re-reads the information from the physical item.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemItem.Refresh(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary>Re-reads the information from the physical item and raises events during the process.</summary>
+      <param name="events">A  object that will be used to raise events. Cannot be a null reference (<b>Nothing</b> in Visual Basic).</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.Attributes">
+      <summary>Gets or sets the attributes of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.BatchUpdateable">
+      <summary>Gets the  implementation for this item, or null (Nothing in Visual Basic) if this item does not support this interface.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.CreationDateTime">
+      <summary>Gets or sets the creation date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoAttributes">
+      <summary>Gets or sets the attributes of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoHasAttributes">
+      <summary>Gets a boolean value indicating if the item supports attributes.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoHasCreationDateTime">
+      <summary>Gets a boolean value indicating if the item supports having a creation date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoHasLastAccessDateTime">
+      <summary>Gets a boolean value indicating if the item supports having a last access date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoHasLastWriteDateTime">
+      <summary>Gets a boolean value indicating if the item supports having a last write date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.Exists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.FullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.HasAttributes">
+      <summary>Gets a boolean value indicating if the item supports attributes.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.HasCreationDateTime">
+      <summary>Gets a boolean value indicating if the item supports having a creation date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.HasLastAccessDateTime">
+      <summary>Gets a boolean value indicating if the item supports having a last access date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.HasLastWriteDateTime">
+      <summary>Gets a boolean value indicating if the item supports having a last write date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.HostedFullName">
+      <summary>Gets a human-readable full pathname representing the fully qualified path of all host files containing the item and the path of the item itself.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.HostFile">
+      <summary>Gets an  containing an archived version of this <see cref="T:Xceed.FileSystem.FileSystemItem" />.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.InvalidChars">
+      <summary>Gets the characters that are invalid in file and folder names.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.LastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.LastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.Name">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.ParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.FileSystemItem.RootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemItem.AltFolderSeparator">
+      <summary>String equivalent of .</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.FileSystemItem.FolderSeparator">
+      <summary>String equivalent of .</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemNotSupportedException.#ctor(Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemNotSupportedException.#ctor(System.String,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified message text and FileSystemItem object.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemNotSupportedException.#ctor(Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object and inner exception.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.FileSystemNotSupportedException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.GetFiltersFromParams(System.Object[])">
+      <summary>Converts a generic array of parameters to an array of  objects.</summary>
+      <returns>An array of  objects.</returns>
+      <param name="filters">An array of objects that must be converted to an array of  objects.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.IsItemInScope(Xceed.FileSystem.FileSystemItem)">
+      <summary>Retrieves a boolean value indicating if the specified item is within the scope of the filter.</summary>
+      <returns>true if the item is within the scope of the filter; false otherwise.</returns>
+      <param name="item">The item to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item matches the filter.</summary>
+      <returns>true if <paramref name="item" /> matches the filter or does not apply to the filter; false otherwise.</returns>
+      <param name="item">The  object to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.IsItemMatching(Xceed.FileSystem.FileSystemItem,Xceed.FileSystem.FilterScope)">
+      <summary>Gets a  value indicating if the item matches the filter.</summary>
+      <returns>A  value: NotApplicable if the filter's scope does not match the applicable scope; Accept if the filter matches the item;
+Reject otherwise.</returns>
+      <param name="item">The  object to verify.</param>
+      <param name="applicableScope">The applicable .</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.IsItemMatchingAll(Xceed.FileSystem.FileSystemItem,Xceed.FileSystem.Filter[])">
+      <summary>Verifies if the  object matches <b>all</b> of the provided filters.</summary>
+      <returns>true if <paramref name="item" /> matches <b>all</b> of the provided filters; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+      <param name="filters">The array of  objects against which <paramref name="item" /> will be verified.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.IsItemMatchingAll(Xceed.FileSystem.FileSystemItem,Xceed.FileSystem.FilterScope,Xceed.FileSystem.Filter[])">
+      <summary>Verifies if the  object matches <b>all</b> of the provided filters.</summary>
+      <returns>A  value indicating whether the item matches all the <see cref="T:Xceed.FileSystem.Filter" /> objects, or whether the
+<see cref="T:Xceed.FileSystem.FilterScope" /> does not apply to the specified <see cref="T:Xceed.FileSystem.FileSystemItem" />.</returns>
+      <param name="item">The  object that will be verified.</param>
+      <param name="applicableScope">The  of the filters to consider. Filters that do not share a common scope are ignored.</param>
+      <param name="filters">The array of  objects against which <paramref name="item" /> will be verified.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.IsItemMatchingOne(Xceed.FileSystem.FileSystemItem,Xceed.FileSystem.Filter[])">
+      <summary>Verifies if the  object matches at least one of the provided filters.</summary>
+      <returns>true if <paramref name="item" /> matches one of the provided filters; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+      <param name="filters">The array of  objects against which <paramref name="item" /> will be verified.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.Filter.IsItemMatchingOne(Xceed.FileSystem.FileSystemItem,Xceed.FileSystem.FilterScope,Xceed.FileSystem.Filter[])">
+      <summary>Verifies if the  object matches at least one of the provided filters.</summary>
+      <returns>A  value indicating whether the item matches at least one of the <see cref="T:Xceed.FileSystem.Filter" /> objects, or whether the
+<see cref="T:Xceed.FileSystem.FilterScope" /> does not apply to the specified <see cref="T:Xceed.FileSystem.FileSystemItem" />.</returns>
+      <param name="item">The  object that will be verified.</param>
+      <param name="applicableScope">The  of the filters to consider. Filters that do not share a common scope are ignored.</param>
+      <param name="filters">The array of  objects against which <paramref name="item" /> will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.Filter.Scope">
+      <summary>Gets or sets the scope of the filter.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.InvalidCharacterInPathException.#ctor">
+      <summary>Initializes a new instance of the InvalidCharacterInPathException class.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.InvalidCharacterInPathException.#ctor(System.String,System.Int32,System.Char[],Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the InvalidCharacterInPathException class.</summary>
+      <param name="path">The path string that caused the current exception.</param>
+      <param name="invalidCharIndex">The index in the path string where an invalid character was found.</param>
+      <param name="invalidChars">The array of characters that are considered invalid for the item's file system.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.InvalidCharacterInPathException.#ctor(System.String,System.Int32,System.Char[],Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the InvalidCharacterInPathException class</summary>
+      <param name="path">The path string that caused the current exception.</param>
+      <param name="invalidCharIndex">The index in the path string where an invalid character was found.</param>
+      <param name="invalidChars">The array of characters that are considered invalid for the item's file system.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="innerException">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.InvalidCharacterInPathException.#ctor(System.String,System.Int32,System.Char[],System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the InvalidCharacterInPathException class</summary>
+      <param name="path">The path string that caused the current exception.</param>
+      <param name="invalidCharIndex">The index in the path string where an invalid character was found.</param>
+      <param name="invalidChars">The array of characters that are considered invalid for the item's file system.</param>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="innerException">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.InvalidCharacterInPathException.InvalidChar">
+      <summary>Gets the character that is considered invalid for the item's file system.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.InvalidCharacterInPathException.InvalidCharIndex">
+      <summary>Gets or sets the index in the path string where an invalid character was found.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.InvalidCharacterInPathException.InvalidChars">
+      <summary>Gets or sets the array of characters that are considered invalid for the item's file system.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.InvalidCharacterInPathException.Path">
+      <summary>Gets or sets the path string that caused the current exception.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.#ctor(System.String)">
+      <summary>Initializes a new instance of the IsolatedFile class with the fully qualified name of an underlying physical file.</summary>
+      <param name="fileName">Fully qualified name of the underlying physical file. This file may or may not physically exist.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical file.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.DoOpenRead(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for reading.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.DoOpenWrite(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="overwrite">true if existing data for the file should be replaced; false if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted.</summary>
+      <returns>true if the path is rooted (for example "folder\file.txt"); false otherwise (for example "file.txt").</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFile.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target items represent the same physical entity.</summary>
+      <returns>true if the source and target  objects represent the same physical entity; false otherwise.</returns>
+      <param name="target">A  object representing the destination item.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.BatchUpdateable">
+      <summary>Gets the  implementation for this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoAttributes">
+      <summary>Gets or sets the attributes of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoHasAttributes">
+      <summary>Gets a boolean value indicating if the file supports attributes.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoHasCreationDateTime">
+      <summary>Gets a boolean value indicating if the file supports having a creation date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoHasLastAccessDateTime">
+      <summary>Gets a boolean value indicating if the file supports having a last access date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoHasLastWriteDateTime">
+      <summary>Gets a boolean value indicating if the file supports having a last write date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFile.DoSize">
+      <summary>Gets the size of the file in bytes.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.DoGetChildItems(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Retrieves an array of  objects.</summary>
+      <returns>An array of  objects representing the items ( files and folders ) contained within the folder.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.DoGetFile(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>A reference to an  object regardless of if the file represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="fileName">The name of the file to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.DoGetFolder(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>A reference to an  object regardless of if the folder represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="folderName">The name of the folder to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item. In the case of a IsolatedFolder object, we are always up-to-date.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted.</summary>
+      <returns>true if the path is rooted (for example "\folder"); false otherwise. (for example "folder")</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.IsolatedFolder.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target items represent the same physical entity.</summary>
+      <returns>true if the source and target  objects represent the same physical entity; false otherwise.</returns>
+      <param name="target">A  object representing the destination item.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.BatchUpdateable">
+      <summary>Gets the  implementation for this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoAttributes">
+      <summary>Gets or sets the attributes of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoHasAttributes">
+      <summary>Gets a boolean value indicating if the folder supports attributes.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoHasCreationDateTime">
+      <summary>Gets a boolean value indicating if the folder supports having a creation date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoHasLastAccessDateTime">
+      <summary>Gets a boolean value indicating if the folder supports having a last access date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoHasLastWriteDateTime">
+      <summary>Gets a boolean value indicating if the folder supports having a last write date and time.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item. <b>Not supported</b>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.IsolatedFolder.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemAlreadyExistsException.#ctor(Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemAlreadyExistsException.#ctor(System.String,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified message text and FileSystemItem object.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemAlreadyExistsException.#ctor(Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object and inner exception.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemAlreadyExistsException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemDoesNotExistException.#ctor(Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemDoesNotExistException.#ctor(System.String,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified message text and FileSystemItem object.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemDoesNotExistException.#ctor(Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object and inner exception.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemDoesNotExistException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemExceptionEventArgs.#ctor">
+      <summary>Intializes a new instance of the ItemExceptionEventArgs argument class.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ItemExceptionEventArgs.Action">
+      <summary>Gets or sets the action taken when an exception is thrown during the processing of a  object.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ItemExceptionEventArgs.Exception">
+      <summary>Gets or sets the exception that was thrown.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemExceptionEventArgs.m_action">
+      <summary>An instance of the ItemExceptionAction class representing the action that will be taken in the OnItemException event handler.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemExceptionEventArgs.m_exception">
+      <summary>An instance of the Exception class representing the exception that was thrown and caused the OnItemException event to be raised.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsReadOnlyException.#ctor(Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsReadOnlyException.#ctor(System.String,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified message text and FileSystemItem object.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsReadOnlyException.#ctor(Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object and inner exception.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsReadOnlyException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsRootFolderException.#ctor(Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsRootFolderException.#ctor(System.String,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes a new instance of the exception with the specified message text and FileSystemItem object.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsRootFolderException.#ctor(Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified FileSystemItem object and inner exception.</summary>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemIsRootFolderException.#ctor(System.String,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary>Initializes a new instance of the exception with the specified message text, FileSystemItem object and inner exception.</summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="item">The FileSystemItem object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemPair.#ctor(Xceed.FileSystem.FileSystemItem,Xceed.FileSystem.FileSystemItem)">
+      <summary>Initializes an instance of the  class specifying the current and target items.</summary>
+      <param name="currentItem">The current  object being processed.</param>
+      <param name="targetItem">The eventual target or destination  object.</param>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemPair.current">
+      <summary>The  object being procesed.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemPair.target">
+      <summary>The eventual target or destination  object.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ItemProcessingEventArgs.Excluded">
+      <summary>Gets or sets a Boolean value that indicates whether the item pair should be excluded from the processing list or not. Default: False</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.ItemProgressionEventArgs.#ctor(Xceed.FileSystem.ProgressionInfo)">
+      <summary>Initializes an new instance of the ItemProgressionEventArgs argument class.</summary>
+      <param name="allItems">The total number of items being processed.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.ItemProgressionEventArgs.AllItems">
+      <summary>Gets the total number of items being processed.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ItemProgressionEventArgs.m_allItems">
+      <summary>An instance of the ProgressionInfo class representing the item count information.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.Licenser.LicenseKey">
+      <summary>Gets or sets the license key used to license this product.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.#ctor">
+      <summary>Initializes a new instance of the MemoryFile class, using a unique root name and filename.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.#ctor(System.String)">
+      <summary>Initializes a new instance of the MemoryFile class specifying its full name.</summary>
+      <param name="fullName">The fully qualified name of the MemoryFile, as returned by , including the root part. The file does not need to
+exist. For example, "RAM:\memoryFile.txt" or "MyRam1:\subfolder\MyFile.txt"</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.#ctor(System.String,System.String)">
+      <summary>Initializes a new instance of the MemoryFile class specifying its root name and filename.</summary>
+      <param name="rootName">The root name of the MemoryFile, without the colon (:). You can see this as the drive letter (or name) of your memory drive. For example: "RamDrive1"</param>
+      <param name="fullName">The name of the MemoryFile, without the root part. Can contain a path. For example, "memoryFile.txt" or "\subfolder\MyFile.txt</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical file.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.DoOpenRead(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for reading.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.DoOpenWrite(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="overwrite">true if existing data for the file should be replaced; false if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item. In the case of a MemoryFile object, we are always up-to-date.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted.</summary>
+      <returns>true if the path is rooted (for example "RAM_DRIVE:\folder\file.txt"); false otherwise (for example "file.txt").</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target items represent the same physical entity.</summary>
+      <returns>true if the source and target  objects represent the same physical entity; false otherwise.</returns>
+      <param name="target">A  object representing the destination item.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFile.ToArray">
+      <summary>Writes the file contents to a  array, regardless of the state and position of opened streams.</summary>
+      <returns>A new  array with the contents of the file. Or <see cref="null" />.</returns>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.BatchUpdateable">
+      <summary>Gets the  implementation for this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoAttributes">
+      <summary>Gets or sets the attributes of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFile.DoSize">
+      <summary>Gets the size of the file in bytes.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.#ctor">
+      <summary>Initializes a new instance of the MemoryFolder class, using a unique root name.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.#ctor(System.String)">
+      <summary>Initializes a new instance of the MemoryFolder class specifying its full path name.</summary>
+      <param name="fullName">The full name of the MemoryFolder, as returned by , including the root part. The folder does not need to exist. For
+example, "RAM:\" or "MyRam1:\Data\Images\Gifs"</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.#ctor(System.String,System.String)">
+      <summary>Initializes a new instance of the MemoryFolder class specifying its root name and folder path.</summary>
+      <param name="rootName">The root name of the MemoryFolder, without the colon (:). You can see this as the drive letter (or name) of your memory drive. For example: "RamDrive1"</param>
+      <param name="fullPath">The full path of the MemoryFolder, without the root part. For example, "\" or "\Data\Images\Gifs"</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical folder.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.DoGetChildItems(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Retrieves an array of  objects.</summary>
+      <returns>An array of  objects representing the items ( files and folders ) contained within the folder.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.DoGetFile(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>A reference to an  object regardless of if the file represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="name">The name of the file to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.DoGetFolder(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary>Retrieves a reference to an  object.</summary>
+      <returns>A reference to an  object regardless of if the folder represented by the object exists or not.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="name">The name of the folder to retrieve.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item. In the case of a MemoryFolder object, we are always up-to-date.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted.</summary>
+      <returns>true if the path is rooted (for example "RAM_DRIVE:\folder"); false otherwise. (for example "folder")</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.MemoryFolder.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target items represent the same physical entity.</summary>
+      <returns>true if the source and target  objects represent the same physical entity; false otherwise.</returns>
+      <param name="target">A  object representing the destination item.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.BatchUpdateable">
+      <summary>Gets the  implementation for this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoAttributes">
+      <summary>Gets or sets the attributes of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.MemoryFolder.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.NameFilter.#ctor(System.String)">
+      <summary>Initializes a new instance of the <strong>NameFilter</strong> class.</summary>
+      <param name="mask">Mask to use to filter file names (e.g. "*.txt", "a??.txt", etc.) By default, the  is set to File.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.NameFilter.#ctor(System.String,Xceed.FileSystem.FilterScope)">
+      <summary>Initializes a new instance of the <strong>NameFilter</strong> class.</summary>
+      <param name="mask">Mask to use to filter file names (e.g. "*.txt", "a??.txt", etc.) By default, the  is set to File.</param>
+      <param name="scope">Determines whether the scope applies to files, folders or both.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.NameFilter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item matches <b>at least one</b> of the name filters.</summary>
+      <returns>true if <paramref name="item" /> matches <b>at least one</b> of the name filters; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.NameFilter.CaseSensitive">
+      <summary>Gets a value indicating whether the file or folder name matching is case-sensitive.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.NameFilter.Masks">
+      <summary>Gets an array of string masks that are used to filter the files and folders.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.NotFilter.#ctor(System.Object)">
+      <summary>Initializes a new instance of the <strong>NotFilter</strong> class.</summary>
+      <param name="filter">Filter whose result must be inverted.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.NotFilter.#ctor(Xceed.FileSystem.Filter)">
+      <summary>Initializes a new instance of the <strong>NotFilter</strong> class.</summary>
+      <param name="filter">Filter whose result must be inverted.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.NotFilter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item does <b>not</b> match the filter.</summary>
+      <returns>true if <paramref name="item" /> does <b>not</b> match the filter; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.NotFilter.Filter">
+      <summary>Gets the  object that is used for the logical NOT operation.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.NotFilter.Scope">
+      <summary>Gets or sets the scope of the <b>inner</b> filter.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.OrFilter.#ctor(System.Object[])">
+      <summary>Initializes a new instance of the <strong>OrFilter</strong> class.</summary>
+      <param name="filters">Filters that are part of the logical OR operation.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.OrFilter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item matches <b>at least one</b> of the filters.</summary>
+      <returns>true if <paramref name="item" /> matches <b>at least one</b> of the filters; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.OrFilter.Filters">
+      <summary>Gets an array of  objects that are part of the logical OR operation.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.OrFilter.Scope">
+      <summary>Gets or sets the scope of the <b>inner</b> filter.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.PathExceptionEventArgs.FileSystemType">
+      <summary>Gets the FileSystem type that was involved when the exception was thrown.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.PathExceptionEventArgs.Path">
+      <summary>Gets or sets the path/file name that caused an exception to be thrown.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.PathExceptionEventArgs.FileSystemTypeInternal">
+      <summary>A  object representing the FileSystem type that was involved when the exception was thrown.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.PathExceptionEventArgs.PathInternal">
+      <summary>A string representing the path/file name that caused the PathException event to be raised.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.ProgressionInfo.#ctor">
+      <summary>Initializes a new instance of the ProgressionInfo class.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ProgressionInfo.Percent">
+      <summary>Gets the ratio (percentage) of bytes or  objects processed so far.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ProgressionInfo.Processed">
+      <summary>Gets or sets the number of bytes or  objects processed so far.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ProgressionInfo.Total">
+      <summary>Gets or sets the total number of bytes or  objects to be processed.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ProgressionInfo.m_processed">
+      <summary>The amount of bytes or items processed.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ProgressionInfo.m_total">
+      <summary>The total amount of bytes or items to process.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ReparsePointTagsFilter.ExpectedResult">
+      <summary>Gets or sets a ReparsePointTags value that defines the target value of the result of
+the bitwise-and operation between the tag value of an item and the the <see cref="Xceed.FileSystem.v6.7~Xceed.FileSystem.ReparsePointTagsFilter~Mask.html">Mask Property</see>.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.ReparsePointTagsFilter.Mask">
+      <summary>Gets or sets a ReparsePointTags value that determines which bits of the tag value
+will be taken into account by the filter.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ReparsePointTagsFilter.DefaultExpectedResult">
+      <summary>A ReparsePointTags Enumeration value that is set
+to the <see cref="Xceed.FileSystem.v6.7~Xceed.FileSystem.ReparsePointTagsFilter~ExpectedResult.html">ExpectedResult
+Property</see> when the object is created.</summary>
+    </member>
+    <member name="F:Xceed.FileSystem.ReparsePointTagsFilter.DefaultMask">
+      <summary>A ReparsePointTags value that is set to the <see cref="Xceed.FileSystem.v6.7~Xceed.FileSystem.ReparsePointTagsFilter~Mask.html">Mask Property</see> when the object is created.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.ScanningFolderEventArgs.#ctor">
+      <summary>Initializes a new instance of the ScanningFolderEventArgs argument class.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.SizeFilter.#ctor(System.Int64,System.Int64)">
+      <summary>Initializes a new instance of the <strong>SizeFilter</strong> class.</summary>
+      <param name="minSize">A value that represents the minimum size of the filter.</param>
+      <param name="maxSize">A value that represents the maximum size of the filter.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.SizeFilter.IsItemMatching(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the item matches the size filter.</summary>
+      <returns>true if <paramref name="item" /> matches the size filter; false otherwise.</returns>
+      <param name="item">The  object that will be verified.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.SizeFilter.MaxSize">
+      <summary>Gets the maximum size value of the filter.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.SizeFilter.MinSize">
+      <summary>Gets the minimum size value of the filter.</summary>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.#ctor(System.IO.Stream)">
+      <summary>Initializes a new instance of the StreamFile class specifying its inner stream.</summary>
+      <param name="stream">The inner stream around which the StreamFile will be created.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.#ctor(System.IO.Stream,System.String)">
+      <summary>Initializes a new instance of the StreamFile class specifying its inner stream as well as its name.</summary>
+      <param name="stream">The inner stream around which the StreamFile will be created.</param>
+      <param name="name">The name representing the StreamFile object.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Creates the physical file. This method will always throw a  exception since it is not possible to recreate
+a StreamFile once it has been destroyed.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Permanently deletes the physical item.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.DoOpenRead(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for reading.</summary>
+      <returns>A  object that can be used to read data from the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.DoOpenWrite(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,System.IO.FileShare,System.IO.FileOptions)">
+      <summary>Opens the file for writing.</summary>
+      <returns>A  object that can be used to write data to the file.</returns>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+      <param name="overwrite">true if existing data for the file should be replaced; false if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A  constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary>Re-reads the information from the physical item. In the case of a StreamFile object, there is nothing to refresh.</summary>
+      <param name="session">A reference to a  object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.IsPathRooted(System.String)">
+      <summary>Returns a boolean value indicating if the path passed is rooted.</summary>
+      <returns>true since every StreamFile is considered to be rooted.</returns>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.FileSystem.StreamFile.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary>Gets a boolean value indicating if the source and target file are the same.</summary>
+      <returns>true if the source and target files are the same; false otherwise.</returns>
+      <param name="target">A  object representing the destination file.</param>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.BatchUpdateable">
+      <summary>Gets the  implementation for this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoAttributes">
+      <summary>Gets or sets the attributes of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoCreationDateTime">
+      <summary>Gets or sets the creation date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoExists">
+      <summary>Gets a boolean value indicating if the item physically exists.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoFullName">
+      <summary>Gets the full name of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoLastAccessDateTime">
+      <summary>Gets or sets the last access date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoLastWriteDateTime">
+      <summary>Gets or sets the modification date and time of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoName">
+      <summary>Gets or sets the filename, without path, of the item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoParentFolder">
+      <summary>Gets a reference to the parent folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoRootFolder">
+      <summary>Gets a reference to the root folder of this item.</summary>
+    </member>
+    <member name="P:Xceed.FileSystem.StreamFile.DoSize">
+      <summary>Gets the size of the file in bytes.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ByteProgressionEventHandler">
+      <summary>Represents the method that will handle the  event.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemExceptionEventHandler">
+      <summary>Represents the method that will handle the  event.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ItemProgressionEventHandler">
+      <summary>Represents the method that will handle the  event.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.PathExceptionEventHandler">
+      <summary>Represents the method that will handle the PathException event.</summary>
+    </member>
+    <member name="T:Xceed.FileSystem.ScanningFolderEventHandler">
+      <summary>Represents the method that will handle the  event.</summary>
+    </member>
+  </members>
+</doc>

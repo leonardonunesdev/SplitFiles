@@ -1,0 +1,9 @@
+C:\Users\leonardo.santos\Desktop\SplitFiles\bin\Debug\SplitFiles.exe.config
+C:\Users\leonardo.santos\Desktop\SplitFiles\bin\Debug\SplitFiles.exe
+C:\Users\leonardo.santos\Desktop\SplitFiles\bin\Debug\SplitFiles.pdb
+C:\Users\leonardo.santos\Desktop\SplitFiles\obj\Debug\SplitFiles.csprojAssemblyReference.cache
+C:\Users\leonardo.santos\Desktop\SplitFiles\obj\Debug\SplitFiles.Properties.Resources.resources
+C:\Users\leonardo.santos\Desktop\SplitFiles\obj\Debug\SplitFiles.csproj.GenerateResource.cache
+C:\Users\leonardo.santos\Desktop\SplitFiles\obj\Debug\SplitFiles.csproj.CoreCompileInputs.cache
+C:\Users\leonardo.santos\Desktop\SplitFiles\obj\Debug\SplitFiles.exe
+C:\Users\leonardo.santos\Desktop\SplitFiles\obj\Debug\SplitFiles.pdb
